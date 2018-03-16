@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Alice Q. Wong</title>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300|Philosopher" rel="stylesheet">
+  <link href="css/materialprint.css" type="text/css" rel="stylesheet" media="screen,projection,print"/>
+  <style type="text/css">
+html {
+    font-family: 'Lato', sans-serif;
+  }
+
+  #contactinfo {
+    margin-top: 5px;
+  }
+
+  .position {
+    color:#ff6f00;
+  }
+
+  .job {
+    margin-bottom: 30px;
+  }
+
+  .job:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .task {
+    margin-bottom: 8px;
+  }
+
+  .skills-title {
+    -webkit-margin-after: 0;
+    text-decoration: underline;
+  }
+
+  .when {
+    text-align: right;
+  }
+
+  ul.named-list {
+    -webkit-margin-before: 0;
+  }
+
+  ul.sublist>li {
+  margin-left: 10px;
+}
+
+.resume-section {
+  width: 100;
+  border-bottom: 2px solid #a9a9a9;
+  margin-top:30px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2em;
+  color:#9e9e9e;
+  /* text-transform: uppercase; */
+  font-family: 'Philosopher', sans-serif;
+}
+
+table,td {
+  /* border: 1px solid #888 !important; */
+  padding: 0px 5px;
+}
+
+.indent {
+  margin-left: 30px;
+}
+
+.title {
+  font-size: 3em;
+  font-family: 'Philosopher', sans-serif;
+}
+
+#career {
+  page-break-after: always;
+}
+
+  </style>
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/dateformat.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<div class="row nav-wrapper amber darken-4 white-text">
+<div class="col m8">
+<span class="left white-text title">Alice Q. Wong</span>
+</div>
+<div class="col m4 grey-text text-lighten-3">
+<div id="contactinfo">
+E-mail: ask@aliceqing.com <br />
+Phone: (909)-319-4109 <br />
+Portfolio: https://www.aliceqing.com
+</div>
+</div>
+</div>
+
+<div class="resume-section">Skills</div>
+<div class="row" id="skills">
+<div class="col m6">
+<p class="skills-title">Languages & Libraries</p>
+    <ul class="named-list">
+    <li>C++
+      <ul class="sublist">
+				<li>OpenGL</li>
+			</ul>
+    </li>
+    <li>Java
+      <ul class="sublist">
+				<li>Android</li>
+			</ul>
+    </li>
+    <li>Javascript
+      <ul class="sublist">
+				<li>AngularJs</li>
+				<li>D3Js</li>
+				<li>ES6</li>
+				<li>ReactJS</li>
+				<li>ThreeJs</li>
+			</ul>
+    </li>
+    <li>Python</li>
+		<li>Swift</li>
+    </ul>
+</div>
+<div class="col m6">
+    <p class="skills-title">Design Tools</p>
+      <ul class="named-list">
+        <li>Sketch 3</li>
+        <li>FramerJS</li>
+				<li>Invision</li>
+				<li>Principle</li>
+      </ul>
+
+    <p class="skills-title">Art Tools</p>
+    <ul class="named-list">
+      <li>Blender</li>
+      <li>Maya</li>
+      <li>Photoshop</li>
+			<li>Processing</li>
+    </ul>
+
+		<p class="skills-title">Markup Languages</p>
+		<ul class="named-list">
+			<li>CSS</li>
+			<li>HTML</li>
+			<li>LaTEX</li>
+		</ul>
+</div>
+</div>
+
+<div class="resume-section">Work Experience</div>
+<div class="row" id="career"></div>
+
+<div class="resume-section">Education</div>
+<div id="education"></div>
+
+</div>
+<script src="js/materialize.js"></script>
+<script type="text/javascript">
+function fetchJobs() {
+  $.get('jobs.js', function(data){
+    var jobs = $.parseJSON(data);
+    jobs = jobs.reverse();
+
+    for(var i=0; i<7; i++){
+      $('#career').append( readJob(jobs[i]) );
+    }
+  }).fail(function(data){
+    console.log('something bad happend!');
+  });
+}
+
+function readJob(job) {
+  var cardContent = $('<div class="row job"></div>');
+
+  var table = $('<table></table>');
+
+
+  var r1 = $('<tr></tr>');
+  var cardTitle = $('<td class="position" colspan="2"></td>');
+  cardTitle.text(job.title);
+  r1.append(cardTitle);
+
+
+  var r2 = $('<tr></tr>');
+  var company = $('<td class="company"></td>');
+  company.text(job.company);
+  r2.append(company);
+
+  var timeRange = $('<td class="when"></td>');
+  var end = job.end === 'NOW' ? job.end : my(job.end);
+  var start = my(job.start);
+  timeRange.text(start+' - '+end);
+  r2.append(timeRange);
+
+  table.append(r2);
+
+  var r3 = $('<tr></tr>');
+
+  var content = $('<td colspan="2"></td>');
+  var does = $('<ul class="jobtasks indent"></ul>');
+  for(var i=0; i<job.details.length; i++){
+    var li = $('<li class="task"></li>');
+    li.text(job.details[i]);
+    does.append(li);
+  }
+  content.append(does);
+  r3.append(content);
+
+  table.append([r1, r2, r3]);
+  cardContent.append(table);
+
+  return cardContent;
+}
+
+function my(date){
+  return dateFormat(date, 'mmm yyyy');
+}
+
+function fetchEdu() {
+  $.get('edu.js', function(data){
+    edu = $.parseJSON(data);
+    edu.map(readEdu);
+  });
+}
+
+function readEdu(exp){
+  if (!exp.show) return;
+  var card = $('<div class="row job"></div>');
+  var table = $('<table></table>');
+
+  var r1 = $('<tr></tr>');
+  r1.append('<td class="position" colspan="2">'+exp.degree+' for '+exp.major+'</td>');
+
+  var r2 = $('<tr></tr>');
+  r2.append('<td class="company">'+exp.school+'</td>');
+  r2.append('<td class="when">'+exp.start +' - ' + exp.end+'</td>');
+
+  table.append([r1,r2]);
+
+  if (exp.extra.length > 0){
+    var r3 = $('<tr></tr>');
+    var content = $('<td colspan="2"></td>');
+    content.append('<p class="skills-title indent">Community & Leadership</p>');
+    var ul = $('<ul class="named-list indent"></ul>');
+    for(var i=0; i<exp.extra.length; i++){
+       var club = exp.extra[i];
+       ul.append('<li class="light"><span class="position">'+club.position+'</span> of '+club.club+'</li>');
+    }
+    content.append(ul);
+    r3.append(content);
+    table.append(r3);
+  }
+
+  card.append(table);
+  $('#education').prepend(card);
+}
+
+window.onload = function(){
+  fetchJobs();
+  fetchEdu();
+};
+</script>
+  </body>
+</html>
