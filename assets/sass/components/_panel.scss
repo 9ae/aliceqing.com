@@ -175,6 +175,11 @@
 		}
 
 		@include panel-colors;
+
+		.anchor-top {
+			position: absolute;
+			top: 10px;
+		}
 	}
 
 	@mixin panel-colors-small {

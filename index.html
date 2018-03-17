@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Ethereal by HTML5 UP</title>
+		<title>Alice Q. Wong</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -24,15 +24,23 @@
 			<script type="text/javascript">
 			window.onload = function() {
 				var page;
+				var colorWheel = ['color0', 'color1', 'color2', 'color4']
 				switch(window.location.hash) {
 					case '#kinkedin':
 						page = 'projects/kinkedin/index.html';
+						break;
 					case '#saxo':
 						page = 'projects/saxo/index.html';
+						break;
 					default:
 						page = 'styleguide.html';
 				}
-				$.get(page, function(data){ $('#page-wrapper').html(data); })
+				$.get(page, function(data){
+					$('#page-wrapper').html(data);
+					$('section.panel').each(function(i, e){
+						$(e).addClass(colorWheel[i % colorWheel.length])
+					})
+				})
 			};
 			</script>
 

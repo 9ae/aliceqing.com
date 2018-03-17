@@ -167,3 +167,20 @@
 			}
 		}
 	}
+
+.media-content {
+	width: 80%;
+	height: auto;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.media-caption {
+	font-size: 0.65em;
+	text-align: center;
+	width: 100%;
+
+	&::before {
+		content: 'Caption: '
+	}
+}
