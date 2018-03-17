@@ -774,6 +774,14 @@ input[type="radio"] + label:before {
   .media-caption::before {
     content: "Caption: "; }
 
+.image-fill {
+  width: 100%;
+  height: auto; }
+  @media (min-width: 768px) {
+    .image-fill {
+      width: auto;
+      height: 100%; } }
+
 /* List */
 ol {
   list-style: decimal;
