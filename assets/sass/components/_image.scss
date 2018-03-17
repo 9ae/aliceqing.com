@@ -32,6 +32,10 @@
 			}
 		}
 
+		&.fade {
+			opacity: 0.8;
+		}
+
 		&[data-position] {
 			img {
 				@include vendor('object-fit', 'cover');
@@ -101,6 +105,12 @@
 		&[data-position="25% 25%"] {
 			img {
 				@include vendor('object-position', '25% 25%');
+			}
+		}
+
+		&[data-position="50% 25%"] {
+			img {
+				@include vendor('object-position', '50% 25%');
 			}
 		}
 

@@ -651,6 +651,8 @@ input[type="radio"] + label:before {
   .image.filtered.tinted:after {
     background-image: url("../../images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25)), linear-gradient(0deg, rgba(0, 0, 0, 0.125), rgba(0, 0, 0, 0.125));
     background-size: 128px 128px, auto, auto; }
+  .image.fade {
+    opacity: 0.8; }
   .image[data-position] img {
     -moz-object-fit: cover;
     -webkit-object-fit: cover;
@@ -712,6 +714,11 @@ input[type="radio"] + label:before {
     -webkit-object-position: 25% 25%;
     -ms-object-position: 25% 25%;
     object-position: 25% 25%; }
+  .image[data-position="50% 25%"] img {
+    -moz-object-position: 50% 25%;
+    -webkit-object-position: 50% 25%;
+    -ms-object-position: 50% 25%;
+    object-position: 50% 25%; }
   .image[data-position="75% 25%"] img {
     -moz-object-position: 75% 25%;
     -webkit-object-position: 75% 25%;
@@ -1907,6 +1914,11 @@ button,
   .panel .anchor-top {
     position: absolute;
     top: 10px; }
+  .panel .anchor-bottom {
+    position: absolute;
+    bottom: 10px; }
+  .panel .caption {
+    font-size: 0.8em; }
 
 @media screen and (max-width: 736px) {
   .panel {

@@ -180,6 +180,15 @@
 			position: absolute;
 			top: 10px;
 		}
+
+		.anchor-bottom {
+			position: absolute;
+			bottom: 10px;
+		}
+
+		.caption {
+			font-size: 0.8em;
+		}
 	}
 
 	@mixin panel-colors-small {
