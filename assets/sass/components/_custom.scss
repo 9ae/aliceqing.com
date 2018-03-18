@@ -58,3 +58,12 @@ $shadow-color: rgba(103, 94, 119, 0.7);
 	width: auto;
 	height: 32px;
 }
+
+.borderless {
+	border: 0
+
+	tr {
+		background-color: none;
+		border: 0;
+	}
+}

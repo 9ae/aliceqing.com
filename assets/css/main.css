@@ -769,6 +769,24 @@ input[type="radio"] + label:before {
       width: auto;
       height: 100%; } }
 
+.image-fill70 {
+  width: 70%;
+  height: auto;
+  margin-left: 15%;
+  margin-right: 15%; }
+
+.image-fill80 {
+  width: 80%;
+  height: auto;
+  margin-left: 10%;
+  margin-right: 10%; }
+
+.image-fill90 {
+  width: 90%;
+  height: auto;
+  margin-left: 5%;
+  margin-right: 5%; }
+
 /* List */
 ol {
   list-style: decimal;
@@ -1914,6 +1932,8 @@ button,
     bottom: 10px; }
   .panel .caption {
     font-size: 0.8em; }
+    .panel .caption.center {
+      text-align: center; }
 
 @media screen and (max-width: 736px) {
   .panel {
@@ -2394,6 +2414,11 @@ button,
 .tool-icon {
   width: auto;
   height: 32px; }
+
+.borderless {
+  border: 0 tr;
+    border-background-color: none;
+    border-border: 0; }
 
 /* Page Wrapper */
 #page-wrapper {
