@@ -1,0 +1,60 @@
+$shadow-color: rgba(103, 94, 119, 0.7);
+
+.swatch-group {
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	display: block;
+}
+
+.color-swatch {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
+	margin-left: 8px;
+
+	&:first-child {
+		margin-left: 0;
+	}
+}
+
+.saxo-buttons {
+	list-style-type: none;
+	margin: 5px 0;
+
+	li {
+		display: inline;
+
+		img {
+			width: 100px;
+			height: 25px;
+		}
+	}
+}
+
+.body-title {
+	margin-bottom: 8px;
+	margin-top: 20px;
+	text-decoration: underline;
+}
+
+.col-image {
+	width: 100%;
+	height: auto;
+	margin-bottom: 28px;
+
+	@media (min-width : 768px) {
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-bottom: 0;
+		border-radius: 2px;
+		box-shadow: 3px 5px 4px $shadow-color;
+	}
+}
+
+.tool-icon {
+	width: auto;
+	height: 32px;
+}
