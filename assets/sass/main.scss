@@ -55,6 +55,10 @@
 		@include gradient-background($tint, $opacity, $stop1, $stop2, 135deg);
 	}
 
+	@mixin gradient-background-reverse($tint: false, $opacity: 0.25, $stop1: 25%, $stop2: 50%) {
+		@include gradient-background($tint, $opacity, $stop1, $stop2, 315deg);
+	}
+
 	@mixin spans($x) {
 		@for $i from 0 through 10 {
 

@@ -40,23 +40,25 @@
 		}
 
 		&.color1-alt {
-			@include gradient-background(false, $opacity);
-			background-color: desaturate(darken(_palette(accent1), $darken), $desaturate);
+			//@include gradient-background(false, $opacity);
+			//background-color: desaturate(darken(_palette(accent1), $darken), $desaturate);
+			@include gradient-background-reverse;
+			background-color: _palette(accent1);
 		}
 
 		&.color2-alt {
-			@include gradient-background(false, $opacity);
-			background-color: desaturate(darken(_palette(accent2), $darken), $desaturate);
+			@include gradient-background-reverse;
+			background-color: _palette(accent2);
 		}
 
 		&.color3-alt {
-			@include gradient-background(false, $opacity);
-			background-color: desaturate(darken(_palette(accent3), $darken), $desaturate);
+			@include gradient-background-reverse;
+			background-color: _palette(accent3);
 		}
 
 		&.color4-alt {
-			@include gradient-background(false, $opacity);
-			background-color: desaturate(darken(_palette(accent4), $darken), $desaturate);
+			@include gradient-background-reverse;
+			background-color: _palette(accent4);
 		}
 	}
 

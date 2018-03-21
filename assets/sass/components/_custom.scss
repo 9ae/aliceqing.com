@@ -67,3 +67,21 @@ $shadow-color: rgba(103, 94, 119, 0.7);
 		border: 0;
 	}
 }
+
+.saxo-video {
+		width: 320px;
+		height: 180px;
+
+	@media (min-width: 1024px) {
+		width: 640px;
+		height: 360px;
+	}
+}
+
+.panel {
+	.inner, .intro {
+		&.uphigh {
+			justify-content: flex-start;
+		}
+	}
+}
